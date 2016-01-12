@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('myApp',['ui.router','ui.bootstrap']);
+var App = angular.module('myApp',['ui.router','ui.bootstrap',"angucomplete-alt"]);
 
 App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 	
@@ -10,7 +10,7 @@ App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	.state('category', {
 		url: "/category",
 		templateUrl: 'category',
-		controller : "HomeController as vm"
+		controller : "HomeController as hc"
 //		resolve: {
 //            async: ['ItemService', function(ItemService) {
 //                return ItemService.fetchCategoryList();

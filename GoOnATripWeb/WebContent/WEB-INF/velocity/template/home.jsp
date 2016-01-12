@@ -3,51 +3,74 @@
 	<table class="table">
 		<tr>
 			<td></td>
-			<td width="30%">
-				<table border="0" style="width: 60%">
+			<td width="30%" style="padding-top: 180px">
+				<table border="0" style="width: 60%;">
 					<tr>
 						<td width="100%" class="bg">
-							<form class="box ng-pristine ng-invalid ng-invalid-required">
+							<form class="box" name="myForm">
 								<table style="width: 90%;" align="center">
-									<tr style="height: 10px"></tr>
+								
+								<tr style="height: 10px"></tr>
 									<tr>
-										<td><input type="text" class="form-control"
-											placeholder="From e.g. Hyderabad"></td>
+										<td style="height: 30px">
+										 <div angucomplete-alt id="fromId" placeholder="From e.g. Hyderabad"
+												pause="100" selected-object="fromSelected"
+												local-data="countries" search-fields="name"
+												title-field="name" minlength="3"
+												input-class="form-control form-control-small"
+												match-class="highlight"></div>
+										
+											</td>
 									</tr>
 									<tr style="height: 2px"></tr>
 									<tr>
-										<td><input class="form-control" type="text"
-											placeholder="From e.g. Vijayawada"></td>
+										<td style="height: 30px">
+										 <div angucomplete-alt id="toId" placeholder="To e.g. Vijayawada"
+												pause="100" selected-object="toSelected"
+												local-data="countries" search-fields="name"
+												title-field="name" minlength="3"
+												input-class="form-control form-control-small"
+												match-class="highlight"></div>
+										
+											</td>
 									</tr>
-									<tr style="height: 10px"></tr>
+									
+									<tr style="height: 2px"></tr>
 
 									<tr>
 										<td>
-											<p>
-												<label class="control-label" style="color: #AAB4BE"
-													for="startDate">{{ vm.displayName }}</label>
-											</p>
 											<p class="input-group">
 												<input type="text" class="form-control"
-													ng-change="vm.pickDate()"
-													datepicker-popup="yyyy-MM-dd HH:mm" id="startDate"
-													ng-model="vm.date" is-open="vm.opened.start"
-													datepicker-options="vm.dateOptions" ng-required="true"
+													ng-change="hc.pickDate()" datepicker-popup="dd-MMM-yyyy"
+													id="startDate" ng-model="hc.searchObj.date"
+													is-open="hc.opened.start"
+													datepicker-options="hc.dateOptions" ng-required="true"
 													close-text="Close" /> <span class="input-group-btn">
 													<button type="button" class="btn btn-default"
-														ng-click="vm.open($event, 'start')">
+														ng-click="hc.open($event, 'start')">
 														<i class="glyphicon glyphicon-calendar"></i>
 													</button>
 												</span>
 											</p>
 										</td>
 									</tr>
+									<tr style="height: 2px"></tr>
+									<tr>
+										<td align="right">
+										
+											<button ng-click="hc.search()"  value="Search" class=" form-control btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+											<span class="glyphicon glyphicon-search"></span>
+											Search
+											</button>
+										</td>
+									</tr>
+									<tr style="height: 10px"></tr>
 								</table>
 							</form>
 						</td>
 					</tr>
 				</table>
-			</td>
+		</td>
 		</tr>
 	</table>
 </div>
