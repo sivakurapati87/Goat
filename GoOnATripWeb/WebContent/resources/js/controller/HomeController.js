@@ -2,9 +2,11 @@
 
 App.controller('HomeController', ['$scope', function($scope) {
           var self = this;
-          self.loginObj = {from:null,to:null,date:null};//search fields
+          self.searchObj = {from:null,to:null,date:null};//search fields
 //          self.categories=async;
           
+          
+          //Calendar code started
           $scope.remoteUrlRequestFn = function(str) {
               return {q: str};
             };
@@ -25,20 +27,21 @@ App.controller('HomeController', ['$scope', function($scope) {
         	      formatYear: 'yy',
         	      startingDay: 1
         	    };
-        	    
+        //Calendar code ended    
           
           self.search = function() {
+        	  alert(self.searchObj.date);
           };
           $scope.fromSelected = function(selected) {
               if (selected) {
-                self.loginObj.from= selected.title;
+                self.searchObj.from= selected.title;
               } else {
                 console.log('cleared');
               }
             };
             $scope.toSelected = function(selected) {
                 if (selected) {
-                	self.loginObj.to = selected.title;
+                	self.searchObj.to = selected.title;
                 } else {
                   console.log('cleared');
                 }

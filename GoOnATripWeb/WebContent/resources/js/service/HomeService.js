@@ -1,6 +1,6 @@
 'use strict';
 
-App.factory('ItemService', ['$http', '$q', function($http, $q){
+App.factory('HomeService', ['$http', '$q', function($http, $q){
 
 	return {
 		
