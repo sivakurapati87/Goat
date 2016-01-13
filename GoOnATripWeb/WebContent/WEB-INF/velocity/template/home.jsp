@@ -1,8 +1,88 @@
+ <script>
+    $(function(){
+
+        $("#typed").typed({
+            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+            stringsElement: $('#typed-strings'),
+            typeSpeed: 30,
+            backDelay: 500,
+            loop: true,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ foo(); },
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
+    });
+
+    function newTyped(){ /* A new typed object */ }
+
+    function foo(){ console.log("Callback"); }
+
+    </script>
+    <style>
+        /* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+    </style>
+
 <div class="container-fluid"
 	style="width: 100%; background-image: url('resources/images/bg2.jpg'); background-repeat: no-repeat; background-size: cover; height: 660px">
-	<table class="table">
+	<table class="table" border="0">
 		<tr>
-			<td></td>
+			<td style="padding-top: 260px" align="center" class="intro_text">
+					<div style="width: 40%;float: left;text-align: right;">Travel &nbsp;</div>
+					<div style="width: 60%;text-align: left;">
+						<div class="type-wrap">
+							<div id="typed-strings">
+								<p>cheaper</p>
+								<p>together</p>
+								<p>safer</p>
+								<p>easier</p>
+								<p>faster</p>
+							</div>
+							<span id="typed" style="white-space: pre;"></span>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+			</td>
 			<td width="30%" style="padding-top: 180px">
 				<table border="0" style="width: 60%;">
 					<tr>

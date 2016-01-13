@@ -4,6 +4,8 @@
 
 <meta charset="utf-8">
 <title>Service App</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="resources/js/typed.js" type="text/javascript"></script>
 <link rel="stylesheet" href="resources/css/angucomplete-alt.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -21,9 +23,15 @@
 <script src="resources/js/controller/HomeController.js"></script>
 <script src="resources/js/service/HomeService.js"></script>
 
+  
+   
+
 </head>
 <body>
 	<div ui-view></div>
+
+
+       
 
 </body>
 </html>
