@@ -58,7 +58,7 @@
 									<tr>
 										<td align="right">
 										
-											<button ng-click="hc.search()"  value="Search" class=" form-control btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+											<button ng-click="hc.search()"  value="Search" class=" form-control btn btn-primary btn-sm" ng-disabled="hc.searchObj.isSearchDisabled">
 											<span class="glyphicon glyphicon-search"></span>
 											Search
 											</button>

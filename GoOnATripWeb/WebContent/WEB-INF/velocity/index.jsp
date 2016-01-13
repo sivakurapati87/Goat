@@ -19,6 +19,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.2/ui-bootstrap-tpls.js"></script>
 <script src="resources/js/app.js"></script>
 <script src="resources/js/controller/HomeController.js"></script>
+<script src="resources/js/service/HomeService.js"></script>
 
 </head>
 <body>

@@ -1,15 +1,12 @@
 'use strict';
 
-App.controller('HomeController', ['$scope', function($scope) {
+App.controller('HomeController', ['$scope','HomeService', function($scope,HomeService) {
           var self = this;
-          self.searchObj = {from:null,to:null,date:null};//search fields
+          self.searchObj = {from:null,to:null,date:null,isSearchDisabled:true};//search fields
 //          self.categories=async;
           
           
           //Calendar code started
-          $scope.remoteUrlRequestFn = function(str) {
-              return {q: str};
-            };
           self.opened = {start: false, end: false};
           
           self.open = function ($event, scheduleName) {
@@ -27,27 +24,55 @@ App.controller('HomeController', ['$scope', function($scope) {
         	      formatYear: 'yy',
         	      startingDay: 1
         	    };
-        //Calendar code ended    
+          self.pickDate = function() {
+        	  self.isSearchDisabledAction();
+            }
+        //Calendar code ended  
           
-          self.search = function() {
-        	  alert(self.searchObj.date);
-          };
+          //This is to enable/disable the search button
+          self.isSearchDisabledAction = function(){
+        	  if(self.searchObj.date != null && self.searchObj.from != null && self.searchObj.to !=null){
+            	  self.searchObj.isSearchDisabled = false;
+              }else{
+            	  self.searchObj.isSearchDisabled = true;
+              }
+          }
+          
+        //set the value for the from field
           $scope.fromSelected = function(selected) {
               if (selected) {
                 self.searchObj.from= selected.title;
+                self.isSearchDisabledAction();
               } else {
                 console.log('cleared');
               }
             };
+          //set the value to the from field
             $scope.toSelected = function(selected) {
                 if (selected) {
                 	self.searchObj.to = selected.title;
+                	 self.isSearchDisabledAction();
                 } else {
                   console.log('cleared');
                 }
               };
 
           
+          //Search Action
+          self.search = function() {
+        	  alert(self.searchObj.date);
+        	 HomeService.searchAction(self.searchObj)
+        	 .then(
+        			 self.isSearchDisabledAction,
+        			 function(errResponse){
+        				 console.error('Error while search Action');
+        			 }
+        			 )
+          };
+          
+              
+              
+          //Json for the auto complete
           $scope.countries = [
 							{name: 'Bhandup'},
 							{name: 'Mumbai'},
